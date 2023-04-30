@@ -1,0 +1,75 @@
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>How many cats do I have?</h3>
+                <button id="one" onclick="button_color(1)">One</button>
+                <button id="two" onclick="button_color(2)">Two</button>
+                <button id="three" onclick="button_color(3)">Three</button>
+                <div id="q1text"></div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What is my girlfriend's name?</h3>
+                <input name="q" id="textbox" type="search">
+                <input type="submit" value="Check Answer" onclick="free_resp()">
+                <div id="q2text"></div>
+            </div>
+        </div>
+        <script>
+            // TODO: Add code to check answers to questions
+            let button1 = document.getElementById("one");
+            let button2 = document.getElementById("two");
+            let button3 = document.getElementById("three");
+            let q1text = document.getElementById("q1text");
+            let defaultc = "#d9edff";
+
+            function button_color(pressed)
+            {
+                // Reset all buttons
+                button1.style.backgroundColor = defaultc;
+                button2.style.backgroundColor = defaultc;
+                button3.style.backgroundColor = defaultc;
+
+                if (pressed == 1) {
+                    button1.style.backgroundColor = 'red';
+                    q1text.innerHTML = 'Incorrect';
+                } else if (pressed == 2) {
+                    button2.style.backgroundColor = 'green';
+                    q1text.innerHTML = 'Correct!';
+                } else if (pressed == 3) {
+                    button3.style.backgroundColor = 'red';
+                    q1text.innerHTML = 'Incorrect';
+                }
+            }
+
+            let textbox = document.getElementById("textbox");
+            function free_resp()
+            {
+                if (textbox.value == "Elena") {
+                    textbox.style.backgroundColor = 'green';
+                    q2text.innerHTML = 'Correct!';
+                } else {
+                    textbox.style.backgroundColor = 'red';
+                    q2text.innerHTML = 'Incorrect';
+                }
+            }
+
+        </script>
+    </body>
+</html>
